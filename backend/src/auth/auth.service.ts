@@ -1,8 +1,10 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Injectable, UnauthorizedException, Logger } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import { UsersService } from "../users/users.service";
 import { SocialConnectionsService } from "../social-connections/social-connections.service";
 import { User } from "../users/entities/user.entity";
+import { Cron, CronExpression } from "@nestjs/schedule";
+import axios from "axios";
 
 interface SocialUserProfile {
   email: string;
@@ -14,6 +16,9 @@ interface SocialUserProfile {
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+  private readonly serviceUrl = process.env.SERVICE_URL;
+
   constructor(
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
@@ -71,5 +76,16 @@ export class AuthService {
     });
 
     return user;
+  }
+
+  @Cron("0 */3 * * * *")
+  async keepServiceAlive() {
+    try {
+      this.logger.debug("Gọi service để tránh bị sleep...");
+      await axios.get(`${this.serviceUrl}/health`);
+      this.logger.debug("Đã gọi service thành công!");
+    } catch (error) {
+      this.logger.error(`Lỗi khi gọi service: ${error.message}`);
+    }
   }
 }
