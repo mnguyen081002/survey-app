@@ -53,12 +53,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           const userData = JSON.parse(storedUser);
           setUser(userData);
           setIsAuthenticated(true);
+          await checkAuthStatus();
         } catch (e) {
           console.error('Lỗi khi đọc dữ liệu người dùng từ localStorage:', e);
         }
       }
-
-      await checkAuthStatus();
     };
 
     initializeAuth();
