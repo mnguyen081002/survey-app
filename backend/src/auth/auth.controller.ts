@@ -38,7 +38,7 @@ export class AuthController extends BaseController {
     res.cookie("auth_token", loginResult.access_token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "lax",
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24,
     });
 
