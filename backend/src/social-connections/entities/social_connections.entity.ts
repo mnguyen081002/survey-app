@@ -5,7 +5,6 @@ import { BaseEntity } from "../../common/entities/base.entity";
 @Entity("social_connections")
 export class SocialConnection extends BaseEntity {
   @Column()
-  @Column()
   provider: string;
 
   @Column()
