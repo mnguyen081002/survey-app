@@ -25,7 +25,7 @@ Nền tảng khảo sát hiện đại được xây dựng bằng React, TypeSc
 
 ### Yêu Cầu Hệ Thống
 
-- Node.js 18+
+- Node.js 19+
 - npm 9+
 
 ### Cài Đặt
@@ -100,15 +100,3 @@ Frontend kết nối với backend API tại `http://localhost:3000`. Các endpo
 1. Tạo một Google OAuth client ID
 2. Thêm client ID vào biến môi trường
 3. Cấu hình backend để xử lý OAuth callbacks
-
-## Đóng Góp
-
-1. Fork repository
-2. Tạo nhánh tính năng
-3. Commit các thay đổi
-4. Push lên nhánh
-5. Tạo Pull Request
-
-## Giấy Phép
-
-Dự án này được cấp phép theo Giấy phép MIT.

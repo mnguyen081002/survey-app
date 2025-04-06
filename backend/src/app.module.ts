@@ -26,7 +26,7 @@ import { AiModule } from "./ai/ai.module";
         password: configService.get("POSTGRES_PASSWORD"),
         database: configService.get("POSTGRES_DB"),
         entities: [__dirname + "/**/*.entity{.ts,.js}"],
-        synchronize: process.env.NODE_ENV !== "production",
+        synchronize: true,
         logging:
           process.env.NODE_ENV !== "production" &&
           process.env.NODE_ENV !== "test",
