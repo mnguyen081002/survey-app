@@ -16,7 +16,7 @@ export class CreateUserDto {
 
   @ApiProperty({
     description: "URL ảnh đại diện",
-    example: "https:
+    example: "https://example.com/avatar.jpg",
   })
   @IsString()
   @IsOptional()
