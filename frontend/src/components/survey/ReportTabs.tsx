@@ -119,7 +119,7 @@ const ReportTabs = ({
                   <p className='text-gray-600 mb-6'>
                     Sử dụng trí tuệ nhân tạo để tạo tóm tắt ý nghĩa từ các câu trả lời khảo sát.
                   </p>
-                  <Button color='primary' onPress={onGenerateSummary} className='mt-2'>
+                  <Button color='primary' radius='sm' onPress={onGenerateSummary} className='mt-2'>
                     Tạo tóm tắt AI
                   </Button>
                 </div>
@@ -130,6 +130,7 @@ const ReportTabs = ({
                       <FiZap className='text-yellow-500 mr-2' /> Tóm tắt AI
                     </h2>
                     <Button
+                      radius='sm'
                       size='sm'
                       variant='light'
                       onPress={onGenerateSummary}
