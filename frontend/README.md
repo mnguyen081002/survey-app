@@ -1,104 +1,114 @@
-# Survey Platform Frontend
+# Nền Tảng Khảo Sát - Frontend
 
-A modern survey platform built with React, TypeScript, and NextUI.
+Nền tảng khảo sát hiện đại được xây dựng bằng React, TypeScript và NextUI.
 
-## Features
+## Tính Năng Chính
 
-- Create and manage surveys
-- Respond to surveys
-- View survey reports
-- Export reports to DOCX
-- Google OAuth authentication
+- Tạo và quản lý khảo sát
+- Phản hồi khảo sát
+- Xem báo cáo khảo sát
+- Xuất báo cáo ra định dạng DOCX
+- Xác thực qua Google OAuth
 
-## Tech Stack
+## Công Nghệ Sử Dụng
 
-- React
-- TypeScript
-- Vite
-- NextUI
-- Tailwind CSS
-- React Query
-- SurveyJS
-- React Router
+- React - Thư viện UI
+- TypeScript - Ngôn ngữ lập trình
+- Vite - Công cụ build
+- NextUI - Thư viện UI components
+- Tailwind CSS - Framework CSS
+- React Query - Quản lý trạng thái và fetch dữ liệu
+- SurveyJS - Thư viện tạo khảo sát
+- React Router - Điều hướng trong ứng dụng
 
-## Getting Started
+## Bắt Đầu
 
-### Prerequisites
+### Yêu Cầu Hệ Thống
 
 - Node.js 18+
 - npm 9+
 
-### Installation
+### Cài Đặt
 
-1. Clone the repository
-2. Install dependencies:
+1. Clone dự án về máy
+2. Cài đặt các dependencies:
    ```bash
    npm install
    ```
 
-### Development
+### Phát Triển
 
-To start the development server:
+Khởi động máy chủ phát triển:
 
 ```bash
 npm run dev
 ```
 
-The app will be available at `http://localhost:5173`.
+Ứng dụng sẽ chạy tại địa chỉ `http://localhost:5173`.
 
-### Building for Production
+### Build Sản Phẩm
 
-To build the app for production:
+Để build ứng dụng cho môi trường production:
 
 ```bash
 npm run build
 ```
 
-The built files will be in the `dist` directory.
+Các file đã build sẽ được lưu trong thư mục `dist`.
 
-## Project Structure
+## Cấu Trúc Dự Án
 
 ```
 src/
-├── components/     # Reusable components
-├── pages/         # Page components
+├── components/     # Các component tái sử dụng
+├── pages/         # Các component trang
 ├── hooks/         # Custom hooks
-├── services/      # API services
-├── utils/         # Utility functions
+├── services/      # Dịch vụ API
+├── utils/         # Các hàm tiện ích
 ├── contexts/      # React contexts
-├── types/         # TypeScript types
-└── assets/        # Static assets
+├── types/         # Định nghĩa kiểu TypeScript
+└── assets/        # Tài nguyên tĩnh
 ```
 
-## API Integration
+## Kiến Trúc Phần Mềm
 
-The frontend expects a backend API at `http://localhost:3000`. The API endpoints are:
+Dự án được tổ chức theo các nguyên tắc SOLID:
 
-- `GET /api/surveys` - Get all surveys
-- `GET /api/surveys/:id` - Get a survey by ID
-- `POST /api/surveys` - Create a survey
-- `PUT /api/surveys/:id` - Update a survey
-- `DELETE /api/surveys/:id` - Delete a survey
-- `POST /api/surveys/:id/responses` - Submit a response
-- `GET /api/surveys/:id/responses` - Get survey responses
-- `GET /api/reports/:id` - Get a report
+- **Single Responsibility Principle**: Mỗi component và service chỉ đảm nhiệm một chức năng duy nhất
+- **Open/Closed Principle**: Cấu trúc cho phép mở rộng mà không cần sửa đổi code hiện có
+- **Liskov Substitution Principle**: Các interface được thiết kế để đảm bảo tính nhất quán
+- **Interface Segregation Principle**: API được chia nhỏ theo chức năng
+- **Dependency Inversion Principle**: Sử dụng dependency injection và custom hooks
 
-## Authentication
+## Tích Hợp API
 
-The app uses Google OAuth for authentication. You'll need to:
+Frontend kết nối với backend API tại `http://localhost:3000`. Các endpoint API:
 
-1. Create a Google OAuth client ID
-2. Add the client ID to your environment variables
-3. Configure the backend to handle OAuth callbacks
+- `GET /api/surveys` - Lấy tất cả khảo sát
+- `GET /api/surveys/:id` - Lấy khảo sát theo ID
+- `POST /api/surveys` - Tạo khảo sát mới
+- `PUT /api/surveys/:id` - Cập nhật khảo sát
+- `DELETE /api/surveys/:id` - Xóa khảo sát
+- `POST /api/surveys/:id/responses` - Gửi phản hồi
+- `GET /api/surveys/:id/responses` - Lấy phản hồi khảo sát
+- `GET /api/reports/:id` - Lấy báo cáo
 
-## Contributing
+## Xác Thực
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+Ứng dụng sử dụng Google OAuth cho xác thực. Bạn cần:
 
-## License
+1. Tạo một Google OAuth client ID
+2. Thêm client ID vào biến môi trường
+3. Cấu hình backend để xử lý OAuth callbacks
 
-This project is licensed under the MIT License.
+## Đóng Góp
+
+1. Fork repository
+2. Tạo nhánh tính năng
+3. Commit các thay đổi
+4. Push lên nhánh
+5. Tạo Pull Request
+
+## Giấy Phép
+
+Dự án này được cấp phép theo Giấy phép MIT.
