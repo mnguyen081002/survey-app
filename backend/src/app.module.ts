@@ -31,6 +31,7 @@ import { AiModule } from "./ai/ai.module";
           process.env.NODE_ENV !== "production" &&
           process.env.NODE_ENV !== "test",
         dropSchema: process.env.NODE_ENV === "test",
+        ssl: process.env.DB_SSL === "true",
       }),
     }),
 
