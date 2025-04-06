@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: development
+    container_name: survey-backend
+    restart: unless-stopped
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env.development
+    environment:
+      - FRONTEND_URL=http://localhost:5173
+      - DATABASE_HOST=db
+    depends_on:
+      - db
+    networks:
+      - survey-network
+    command: npm run start:dev
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: survey-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    env_file:
+      - ./frontend/.env.development
+    environment:
+      - VITE_API_URL=http://backend:3000
+    depends_on:
+      - backend
+    networks:
+      - survey-network
+
+  db:
+    image: postgres:14-alpine
+    container_name: survey-database
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.development
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - survey-network
+
+networks:
+  survey-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
