@@ -123,7 +123,7 @@ api.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       // Xóa token và chuyển hướng về trang đăng nhập
       localStorage.removeItem('user');
-      window.location.href = '/login';
+      window.location.href = '/';
     }
     return Promise.reject(error);
   },
